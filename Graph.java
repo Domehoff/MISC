@@ -1,33 +1,25 @@
-/* This class was borrowed and modified as needed with permission from it's original author
-   Mark Stelhik ( http:///www.cs.cmu.edu/~mjs ).  You can find Mark's original presentation of
-   this material in the links to his S-01 15111,  and F-01 15113 courses on his home page.
-*/
+
 
 import java.io.*;
 import java.util.*;
 
 public class Graph 
 {
-	private final int NO_EDGE = -1; // all real edges are positive
-	private int G[][];              // will point to a 2D array to hold our graph data
+	private final int NO_EDGE = -1; 
+	private int G[][];             
 
 	private int numEdges;
-	public Graph( String graphFileName ) throws Exception  // since readFild doesn't handle them either
+	public Graph( String graphFileName ) throws Exception  
 	{
 		loadGraphFile( graphFileName );
 	}
-
-	///////////////////////////////////// LOAD GRAPH FILE //////////////////////////////////////////
-	//
-	// FIRST NUMBER IN GRAPH FILE IS THE SQUARE DIMENSION OF OUR 2D ARRAY
-	// THE REST OF THE LINES EACH CONTAIN A TRIPLET <ROW,COL,WEIGHT> REPRESENTING AN EDGE IN THE GRAPH
 
 	private void loadGraphFile( String graphFileName ) throws Exception
 	{
 		Scanner graphFile = new Scanner( new File( graphFileName ) );
 
-		int dimension = graphFile.nextInt();   	// THE OF OUR N x N GRAPH
-		G = new int[dimension][dimension]; 		// N x N ARRAY OF ZEROS
+		int dimension = graphFile.nextInt();   
+		G = new int[dimension][dimension]; 		
 		numEdges=0;
 		
 		for(int i = 0; i < dimension; i++)
