@@ -14,8 +14,6 @@ public class Knapsack
 			System.exit(-1);
 		}
 
-		// READ IN THE SET AND THE TARGET. ECHO THEM BOTH ON THIER OWN LINE TO STDOUT
-
 		Scanner infile = new Scanner(new FileReader(args[0]));
 		for (int i=0 ; i<SET_LEN ; ++i)
 		{	set[i] = infile.nextInt();
@@ -25,9 +23,7 @@ public class Knapsack
 		target=infile.nextInt();
 		System.out.printf("%d\n", target);
 
-		// GENERATE AND TEST ALL SUBSTES OF THE ARRAY
-
-		int MAX16BITS = 0X0000FFFF; // i.e 2^16 - 1 i.e. 65,535 i. 16 bits of all ones
+		int MAX16BITS = 0X0000FFFF; 
 		for ( int bitMap  = 1; bitMap <= MAX16BITS; ++bitMap )
 		{
 			int sumOfSet = 0;
@@ -43,5 +39,5 @@ public class Knapsack
 			if(sumOfSet == target)
 				System.out.println(StringOfSet);
 		}
-	} // END MAIN
-} // ENd KNAPSACK
+	} 
+} 
